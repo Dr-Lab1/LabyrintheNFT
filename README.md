@@ -2,4 +2,4 @@
 
 > Back-end avec Laravel
 
-Lara
+Larav
