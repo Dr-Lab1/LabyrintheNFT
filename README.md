@@ -2,4 +2,4 @@
 
 > Back-end avec Laravel
 
-Laravel nous aidera à créer
+Laravel nous aidera à créer des APIs
