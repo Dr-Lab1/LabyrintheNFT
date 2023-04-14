@@ -19,7 +19,7 @@ Installez ces prérequis
 $ cd <NOM DU PROJET>
 $ yarn install # or npm install
 ```
-## Step 3. Start Ganache-CLI
+## Step 3. Demarrer Ganache-CLI
 Open the terminal and run the command below.
 ```sh
 $ ganache-cli
