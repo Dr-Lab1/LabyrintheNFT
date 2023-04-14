@@ -1,7 +1,7 @@
-
 # Truffle-Tailwind-React Web3 Starter Kit
-Speedily develope your decentralized application with this starter kit for free!
+Développez rapidement votre application décentralisée avec ce kit de démarrage gratuit !
 
+Suivez les étapes ci-dessous pour télécharger, installer et exécuter ce projet.
 Follow the steps below to download, install, and run this project.
 
 ## Dependencies
