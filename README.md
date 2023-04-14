@@ -3,7 +3,7 @@ Développez rapidement votre application décentralisée avec ce kit de démarra
 
 Suivez les étapes ci-dessous pour télécharger, installer et exécuter ce projet.
 
-## Dependencies
+## Dépendances
 Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
