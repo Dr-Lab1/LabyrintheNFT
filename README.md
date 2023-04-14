@@ -4,14 +4,14 @@ Développez rapidement votre application décentralisée avec ce kit de démarra
 Suivez les étapes ci-dessous pour télécharger, installer et exécuter ce projet.
 
 ## Dépendances
-Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
+Installez ces prérequis
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
 - Ganache-CLI: https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/
 - Tailwind CSS: https://tailwindcss.com/
 
 
-## Step 1. Clone the project
+## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/">Daltonic</a> project
 `git clone https://github.com/Daltonic/tailwind_truffle_starter_kit <PROJECT NAME>`
 
 ## Step 2. Install dependencies
