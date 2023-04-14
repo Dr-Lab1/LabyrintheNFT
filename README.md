@@ -1,8 +1,7 @@
-# Truffle-Tailwind-React Web3 Starter Kit
+# Kit de démarrage Truffle-Tailwind-React Web3
 Développez rapidement votre application décentralisée avec ce kit de démarrage gratuit !
 
 Suivez les étapes ci-dessous pour télécharger, installer et exécuter ce projet.
-Follow the steps below to download, install, and run this project.
 
 ## Dependencies
 Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
