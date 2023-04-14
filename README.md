@@ -20,7 +20,7 @@ $ cd <NOM DU PROJET>
 $ yarn install # or npm install
 ```
 ## Step 3. Demarrer Ganache-CLI
-Open the terminal and run the command below.
+Ouvre le terminal puis exécute la commande ci-dessous.
 ```sh
 $ ganache-cli
 ```
