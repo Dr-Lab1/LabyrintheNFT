@@ -14,7 +14,7 @@ Installez ces prérequis
 ## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/">Daltonic</a> project
 `git clone https://github.com/Daltonic/tailwind_truffle_starter_kit <NOM DU PROJET>`
 
-## Ztape 2. Installer les dépendances
+## Etape 2. Installer les dépendances
 ```sh
 $ cd <NOM DU PROJET>
 $ yarn install # or npm install
