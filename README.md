@@ -14,9 +14,9 @@ Installez ces prérequis
 ## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/">Daltonic</a> project
 `git clone https://github.com/Daltonic/tailwind_truffle_starter_kit <NOM DU PROJET>`
 
-## Step 2. Install dependencies
+## Step 2. Installer les dépendances
 ```sh
-$ cd <PROJECT NAME>
+$ cd <NOM DU PROJET>
 $ yarn install # or npm install
 ```
 ## Step 3. Start Ganache-CLI
