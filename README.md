@@ -25,11 +25,11 @@ Ouvre le terminal puis exécute la commande ci-dessous.
 $ ganache-cli
 ```
 
-## Etape 4. Compile & Deploy Smart Contract
+## Etape 4. Compiler & Deployer un Smart Contract
 `$ truffle migrate --reset`
-Migrate your smart contract each time your restart ganache.
+Migrez votre contrat intelligent à chaque redémarrage de votre ganache.
 
-## Etape 5. Run the Front End Application
+## Etape 5. Exécuter le Front End de l'application
 `$ yarn start`
-Visit this URL in your browser: http://localhost:3000
+Visiter cette URL dans le navigateur : http://localhost:3000
 
