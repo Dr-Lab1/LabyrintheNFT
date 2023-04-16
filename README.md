@@ -25,7 +25,7 @@ Ouvre le terminal puis exécute la commande ci-dessous.
 $ ganache-cli
 ```
 
-## Etape 4. Compiler & Deployer un Smart Contract
+## Etape 4. Compiler & Deployer un Contract
 `$ truffle migrate --reset`
 Migrez votre contrat intelligent à chaque redémarrage de votre ganache.
 
