@@ -11,7 +11,7 @@ Installer des prérequis.
 - Tailwind CSS: https://tailwindcss.com/
 
 
-## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/">Daltonic</a> proje
+## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/">Daltonic</a> proj
 `git clone https://github.com/Daltonic/tailwind_truffle_starter_kit <NOM DU PROJET>`
 
 ## Etape 2. Installer les dépendances
