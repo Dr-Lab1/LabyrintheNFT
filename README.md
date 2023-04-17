@@ -31,5 +31,5 @@ Migrez votre contrat intelligent à chaque redémarrage de votre ganache.
 
 ## Etape 5. Exécuter le Front End de l'application
 `$ yarn start`
-Visiter cette URL dans le navigateur : http://localhost:3000
+Visitez cette URL dans le navigateur : http://localhost:3000
 
