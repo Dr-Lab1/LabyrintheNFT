@@ -7,9 +7,9 @@ const Header = () => {
             </div>
 
             <ul className='md:flex-[0.5] text-white md:flex hidden list-none justify-between items-center flex-initial'>
-                <li className='mx-4 cursor-pointer'>Market</li>
+                <li className='mx-4 cursor-pointer'>Marketplace</li>
                 <li className='mx-4 cursor-pointer'>Artistes</li>
-                <li className='mx-4 cursor-pointer'>Caractéristique</li>
+                <li className='mx-4 cursor-pointer'>Caractéristiques</li>
                 <li className='mx-4 cursor-pointer'>Communauté</li>
             </ul>
 
