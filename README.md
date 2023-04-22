@@ -4,14 +4,14 @@ Développez rapidement votre application décentralisée avec ce kit de démarra
 Suivez les étapes ci-dessous pour télécharger, installer et exécuter ce projet.
 
 ## Dépendances
-Installez ces prérequis
+Installer des prérequis.
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
 - Ganache-CLI: https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/
 - Tailwind CSS: https://tailwindcss.com/
 
 
-## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/">Daltonic</a> project
+## Etape 1. Clôner le prototype de devéllopement du projet chez <a href="https://github.com/Daltonic/" target="_blank">Daltonic</a>
 `git clone https://github.com/Daltonic/tailwind_truffle_starter_kit <NOM DU PROJET>`
 
 ## Etape 2. Installer les dépendances
@@ -31,5 +31,5 @@ Migrez votre contrat intelligent à chaque redémarrage de votre ganache.
 
 ## Etape 5. Exécuter le Front End de l'application
 `$ yarn start`
-Visiter cette URL dans le navigateur : http://localhost:3000
+Visitez cette URL dans le navigateur : http://localhost:3000
 
