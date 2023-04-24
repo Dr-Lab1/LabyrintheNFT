@@ -4,7 +4,7 @@ Développez rapidement votre application décentralisée avec ce kit de démarra
 Suivez les étapes ci-dessous pour télécharger, installer et exécuter ce projet.
 
 ## Dépendances
-Installer des prérequis.
+Installer des prérequis
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
 - Ganache-CLI: https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/
