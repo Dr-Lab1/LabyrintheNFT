@@ -1,24 +1,74 @@
 import { FaTimes } from 'react-icons/fa'
 import defaultImg from '../assets/default.png'
+import { useState } from 'react'
+import { setGlobalState, useGlobalState } from '../store'
 
 const CreateNFT = () => {
 
+  const [modal] = useGlobalState('modal')
+  const [title, setTitle] = useState('')
+  const [price, setPrice] = useState('')
+  const [description, setDescription] = useState('')
+  const [fileUrl, setFileUrl] = useState('')
+  const [imgBase64, setImgBase64] = useState(null)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (!title || !price || !description) return
+
+    setGlobalState('modal', 'scale-0')
+    setGlobalState('loading', { show: true, msg: 'Uploading IPFS data...' })
+
+    try {
+      const created = await client.add(fileUrl)
+      const metadataURI = `https://ipfs.io/ipfs/${created.path}`
+      const nft = { title, price, description, metadataURI }
+
+      setLoadingMsg('La transaction est en cours d\'initialisation ...')
+      setFileUrl(metadataURI)
+      await mintNFT(nft)
+
+      resetForm()
+      setAlert('NFT envoyé avec succès...', 'green')
+      window.location.reload()
+    } catch (error) {
+      console.log('Erreur d\'envoi du fichier : ', error)
+      setAlert('La transaction a échoué...', 'red')
+    }
+  }
+
+  const closeModal = () => {
+    setGlobalState('modal', 'scale-0')
+    resetForm()
+  }
+
+  const resetForm = () => {
+    setFileUrl('')
+    setImgBase64(null)
+    setTitle('')
+    setPrice('')
+    setDescription('')
+  }
+
     return (
-        <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center 
-                      bg-black bg-opacity-50 transform transition-transform duration-300 scale-100">
+        <div className={`fixed top-0 left-0 w-screen h-screen flex items-center
+                        justify-center bg-black bg-opacity-50 transform
+                        transition-transform duration-300 ${modal}`}
+        >
             
             <div className="bg-[#151c25] shadow-xl shadow-[#e32970] rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">
-                <form className="flex flex-col text-gray-400">
+                <form onSubmit={handleSubmit} className="flex flex-col text-gray-400">
                     <div className="flex justify-between items-center">
                         <p className="font-semibold">Ajouter un NFT</p>
-                        <button type="button" className="border-0 bg-transparent focus:outline-none">
+                        <button type="button" className="border-0 bg-transparent focus:outline-none" onClick={closeModal}>
                             <FaTimes />
                         </button>
                     </div>
 
                     <div className='flex justify-center items-center rounded-xl mt-5'>
                         <div className='shrink-0 w-20 h-20 rounded-md overflow-hidden'>
-                            <img src={defaultImg} alt="NFT" className='w-full h-full object-cover cursor-pointer'/>
+                            <img src={imgBase64 || defaultImg} alt="NFT" className='w-full h-full object-cover cursor-pointer'/>
                         </div>
                     </div>
 
@@ -30,7 +80,10 @@ const CreateNFT = () => {
                                             rounded-md file:border-0 file:text-sm file:font-semibold
                                             hover:file:bg-gray-300 focus:outline-none cursor-pointer file:cursor-pointer'
                                 accept='image/png, image/gif, image/jpeg, image/jpg, image/webp'
-                                required/>
+                                required
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                                />
                         </label>
                     </div>
 
@@ -41,7 +94,10 @@ const CreateNFT = () => {
                                      hover:file:bg-gray-300 focus:outline-none cursor-text
                                      bg-gray-800 rounded-md'
                             placeholder='Titre' name='titre'
-                            required />
+                            required 
+                            onChange={(e) => setPrice(e.target.value)}
+                            value={price}
+                            />
                     </div>
 
                     <div className='flex justify-between items-center rounded-xl mt-5 bg-gray-800'>
@@ -52,7 +108,10 @@ const CreateNFT = () => {
                                      hover:file:bg-gray-300 focus:outline-none cursor-text
                                      bg-gray-800 rounded-md'
                             placeholder='Prix (ETH)' name='prix'
-                            required />
+                            required 
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            />
                     </div>
 
                     <div className='flex justify-between items-center rounded-xl mt-5 bg-gray-800'>
