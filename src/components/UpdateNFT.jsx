@@ -71,7 +71,7 @@ const UpdateNFT = () => {
               step={0.01}
               min={0.01}
               name="price"
-              placeholder="Price (Eth)"
+              placeholder="Prix (Eth)"
               onChange={(e) => setPrice(e.target.value)}
               required
             />
@@ -88,7 +88,7 @@ const UpdateNFT = () => {
             hover:border hover:border-[#bd255f]
             focus:outline-none focus:ring mt-5"
           >
-            Update Now
+            Changer maintenant
           </button>
         </form>
       </div>
