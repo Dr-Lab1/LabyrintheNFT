@@ -1,4 +1,5 @@
 import img from '../assets/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDYvNGE4NmNmOWQtODM2Mi00YmVhLThiMzctZDEyODAxNjUxZTE1LmpwZWc=.jpg'
+import { setGlobalState } from '../store'
 
 const Artworks = () => {
     return (
@@ -36,7 +37,11 @@ const Card = ({nft}) => (
                 <small className='text-xs'>Prix actuel</small>
                 <p className='text-sm font-semibold'>1 ETH</p>
             </div>
-            <button className='shadow-lg shadow-black text-sm bg-[#e32970] hover:bg-[#bd255f] rounded-full px-1.5 py-1'>Plus de détails</button>
+            <button className='shadow-lg shadow-black text-sm bg-[#e32970] hover:bg-[#bd255f] 
+                    rounded-full px-1.5 py-1'
+                    onClick={() => setGlobalState('showModal', 'scale-100')}>
+                Plus de détails
+            </button>
         </div>
     </div>
 )

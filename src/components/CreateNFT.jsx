@@ -30,11 +30,11 @@ const CreateNFT = () => {
       await mintNFT(nft)
 
       resetForm()
-      setAlert('NFT envoyé avec succès...', 'green')
+    //   setAlert('NFT envoyé avec succès...', 'green')
       window.location.reload()
     } catch (error) {
       console.log('Erreur d\'envoi du fichier : ', error)
-      setAlert('La transaction a échoué...', 'red')
+    //   setAlert('La transaction a échoué...', 'red')
     }
   }
 
