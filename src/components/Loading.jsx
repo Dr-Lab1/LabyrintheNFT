@@ -18,7 +18,7 @@ const Loading = () => {
       >
         <div className="flex flex-row justify-center items-center">
           <div className="lds-dual-ring scale-50"></div>
-          <p className="text-lg text-white">Processing...</p>
+          <p className="text-lg text-white">Traitement...</p>
         </div>
         <small className="text-white">{loading.msg}</small>
       </div>
