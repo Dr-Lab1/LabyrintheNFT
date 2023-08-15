@@ -6,6 +6,11 @@ const { setGlobalState, useGlobalState, getGlobalState } = createGlobalState ({
     updateModal : 'scale-0',
     alert: { show: false, msg: '', color: '' },
     loading: { show: false, msg: '' },
+    connectedAccount: '',
+    nft: null,
+    nfts: [],
+    transactions: [],
+    contract: null,
 })
 
 const setAlert = (msg, color = 'green') => {
