@@ -1,6 +1,6 @@
 import Web3 from 'web3'
 import { setGlobalState, getGlobalState, setAlert } from './store'
-import abi from './abis/TimelessNFT.json'
+import abi from './abis/Labyrinthe.json'
 
 const { ethereum } = window
 window.web3 = new Web3(ethereum)
@@ -21,7 +21,7 @@ const getEtheriumContract = async () => {
 
 const connectWallet = async () => {
   try {
-    if (!ethereum) return reportError('Please install Metamask')
+    if (!ethereum) return reportError("Veillez installer Metamask s'il vous plaît !")
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
     setGlobalState('connectedAccount', accounts[0].toLowerCase())
   } catch (error) {
@@ -31,7 +31,7 @@ const connectWallet = async () => {
 
 const isWallectConnected = async () => {
   try {
-    if (!ethereum) return reportError('Please install Metamask')
+    if (!ethereum) return reportError("Veillez installer Metamask s'il vous plaît !")
     const accounts = await ethereum.request({ method: 'eth_accounts' })
 
     window.ethereum.on('chainChanged', (chainId) => {
@@ -47,7 +47,7 @@ const isWallectConnected = async () => {
       setGlobalState('connectedAccount', accounts[0].toLowerCase())
     } else {
       setGlobalState('connectedAccount', '')
-      reportError('Please connect wallet.')
+      reportError("Connectez votre wallet s'il vous plaît.")
     }
   } catch (error) {
     reportError(error)
