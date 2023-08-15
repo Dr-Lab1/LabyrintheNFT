@@ -6,7 +6,7 @@ const { ethereum } = window
 window.web3 = new Web3(ethereum)
 window.web3 = new Web3(window.web3.currentProvider)
 
-const getEtheriumContract = async () => {
+const getEthereumContract = async () => {
   const web3 = window.web3
   const networkId = await web3.eth.net.getId()
   const networkData = abi.networks[networkId]
@@ -39,12 +39,12 @@ const isWallectConnected = async () => {
     })
 
     window.ethereum.on('accountsChanged', async () => {
-      setGlobalState('connectedAccount', accounts[0].toLowerCase())
+      setGlobalState('connectedAccount', accounts[0])
       await isWallectConnected()
     })
 
     if (accounts.length) {
-      setGlobalState('connectedAccount', accounts[0].toLowerCase())
+      setGlobalState('connectedAccount', accounts[0])
     } else {
       setGlobalState('connectedAccount', '')
       reportError("Connectez votre wallet s'il vous plaît.")
@@ -72,7 +72,7 @@ const getAllNFTs = async () => {
   try {
     if (!ethereum) return reportError('Please install Metamask')
 
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
     const nfts = await contract.methods.getAllNFTs().call()
     const transactions = await contract.methods.getAllTransactions().call()
 
@@ -86,7 +86,7 @@ const getAllNFTs = async () => {
 const mintNFT = async ({ title, description, metadataURI, price }) => {
   try {
     price = window.web3.utils.toWei(price.toString(), 'ether')
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
     const mintPrice = window.web3.utils.toWei('0.01', 'ether')
 
@@ -103,7 +103,7 @@ const mintNFT = async ({ title, description, metadataURI, price }) => {
 const buyNFT = async ({ id, cost }) => {
   try {
     cost = window.web3.utils.toWei(cost.toString(), 'ether')
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
     const buyer = getGlobalState('connectedAccount')
 
     await contract.methods
@@ -119,7 +119,7 @@ const buyNFT = async ({ id, cost }) => {
 const updateNFT = async ({ id, cost }) => {
   try {
     cost = window.web3.utils.toWei(cost.toString(), 'ether')
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
     const buyer = getGlobalState('connectedAccount')
 
     await contract.methods.changePrice(Number(id), cost).send({ from: buyer })

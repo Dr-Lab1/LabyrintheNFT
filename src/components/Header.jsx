@@ -20,7 +20,7 @@ const Header = () => {
 
                 <button className='shadow-xl shadow-black text-white bg-[#e32970]
                 hover:bg-[#bd255f] md:text-xs p-2 rounded-full'>
-                {truncate(connectedAccount, 8, 8, 20)}
+                {truncate(connectedAccount, 5, 5, 15)}
                 </button>
 
             ) : (
