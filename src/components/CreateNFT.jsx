@@ -39,10 +39,12 @@ const CreateNFT = () => {
         if (!title || !price || !description) return
 
         setGlobalState('modal', 'scale-0')
-        setGlobalState('Chargement', { show: true, msg: 'Chargement dans IPFS data...' })
+        setLoadingMsg('Chargement des fichiers dans IPFS data...')
 
         try {
             const created = await client.add(fileUrl)
+            setLoadingMsg('La confirmation de la transaction est en cours de traitement...')
+
             const metadataURI = `https://ipfs.io/ipfs/${created.path}`
             const nft = { title, price, description, metadataURI }
 
@@ -50,12 +52,13 @@ const CreateNFT = () => {
             setFileUrl(metadataURI)
             await mintNFT(nft)
 
-            resetForm()
-            //   setAlert('NFT envoyé avec succès...', 'green')
+            closeModal()
+
+            setAlert('NFT envoyé avec succès...', 'green')
             window.location.reload()
         } catch (error) {
             console.log('Erreur d\'envoi du fichier : ', error)
-            //   setAlert('La transaction a échoué...', 'red')
+            setAlert('La transaction a échoué...', 'red')
         }
     }
 
@@ -115,7 +118,6 @@ const CreateNFT = () => {
                                 accept='image/png, image/gif, image/jpeg, image/jpg, image/webp'
                                 required
                                 onChange={changeImage}
-                                value={title}
                             />
                         </label>
                     </div>
@@ -128,8 +130,8 @@ const CreateNFT = () => {
                                      bg-gray-800 rounded-md'
                             placeholder='Titre' name='titre'
                             required
-                            onChange={(e) => setPrice(e.target.value)}
-                            value={price}
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
                         />
                     </div>
 
@@ -142,8 +144,8 @@ const CreateNFT = () => {
                                      bg-gray-800 rounded-md'
                             placeholder='Prix (ETH)' name='prix'
                             required
-                            onChange={(e) => setDescription(e.target.value)}
-                            value={description}
+                            onChange={(e) => setPrice(e.target.value)}
+                            value={price}
                         />
                     </div>
 
@@ -154,19 +156,18 @@ const CreateNFT = () => {
                             hover:file:bg-gray-300 focus:outline-none cursor-text
                             bg-gray-800 rounded-md resize-none'
                             placeholder='Description'
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
                             required>
-
                         </textarea>
-                        {/* <input type="text"
-                            className='block w-full text-sm text-slate-500
-                                     hover:file:bg-gray-300 focus:outline-none cursor-text
-                                     bg-gray-800 rounded-md'
-                            placeholder='Titre' name='titre'
-                            required /> */}
                     </div>
 
-                    <button className='flex justify-center items-center bg-[#e32970] hover:bg-gray-800
-                                        py-2 mt-2 rounded-full text-white border-2 border-[#e32970]'>
+                    <button type='submit'
+                            className='flex justify-center items-center bg-[#e32970] hover:bg-gray-800
+                                        py-2 mt-2 rounded-full text-white border-2 border-[#e32970]'
+                            onClick={handleSubmit}
+                            >
+
                         Envoyer maintenant
                     </button>
                 </form>
