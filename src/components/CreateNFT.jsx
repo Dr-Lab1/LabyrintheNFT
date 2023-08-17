@@ -59,6 +59,18 @@ const CreateNFT = () => {
         }
     }
 
+    const changeImage = async (e) => {
+        const reader = new FileReader()
+        if (e.target.files[0]) reader.readAsDataURL(e.target.files[0])
+    
+        reader.onload = (readerEvent) => {
+          const file = readerEvent.target.result
+          setImgBase64(file)
+          setFileUrl(e.target.files[0])
+        }
+    }
+
+
     const closeModal = () => {
         setGlobalState('modal', 'scale-0')
         resetForm()
@@ -102,7 +114,7 @@ const CreateNFT = () => {
                                             hover:file:bg-gray-300 focus:outline-none cursor-pointer file:cursor-pointer'
                                 accept='image/png, image/gif, image/jpeg, image/jpg, image/webp'
                                 required
-                                onChange={(e) => setTitle(e.target.value)}
+                                onChange={changeImage}
                                 value={title}
                             />
                         </label>
