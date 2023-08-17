@@ -1,7 +1,20 @@
-import { FaTimes } from 'react-icons/fa'
 import defaultImg from '../assets/default.png'
+import {
+    useGlobalState,
+    setGlobalState,
+    setLoadingMsg,
+    setAlert,
+} from '../store'
 import { useState } from 'react'
-import { setGlobalState, useGlobalState } from '../store'
+import { FaTimes } from 'react-icons/fa'
+import { create } from 'ipfs-http-client'
+import { mintNFT } from '../Blockchain.Services'
+
+const auth =
+  'Basic ' +
+  Buffer.from(
+    process.env.REACT_APP_INFURIA_PID + ':' + process.env.REACT_APP_INFURIA_API,
+  ).toString('base64')
 
 const CreateNFT = () => {
 
@@ -18,7 +31,7 @@ const CreateNFT = () => {
     if (!title || !price || !description) return
 
     setGlobalState('modal', 'scale-0')
-    setGlobalState('loading', { show: true, msg: 'Uploading IPFS data...' })
+    setGlobalState('Chargement', { show: true, msg: 'Chargement dans IPFS data...' })
 
     try {
       const created = await client.add(fileUrl)
