@@ -29,7 +29,7 @@ const App = () => {
       <Footer />
       <CreateNFT />
       <ShowNFT />
-      {/* <UpdateNFT /> */}
+      <UpdateNFT />
       <Loading />
       <Alert />
     </div>
