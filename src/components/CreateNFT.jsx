@@ -48,7 +48,7 @@ const CreateNFT = () => {
             const metadataURI = `https://ipfs.io/ipfs/${created.path}`
             const nft = { title, price, description, metadataURI }
 
-            setLoadingMsg('La transaction est en cours d\'initialisation ...')
+            setLoadingMsg("La transaction est en cours d'initialisation ...")
             setFileUrl(metadataURI)
             await mintNFT(nft)
 
