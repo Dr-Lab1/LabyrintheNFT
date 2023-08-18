@@ -1,7 +1,24 @@
 import { BiTransfer } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
+import { truncate, useGlobalState } from '../store'
+import { useEffect, useState } from 'react'
 
 const Transactions = () => {
+
+    const [transactions] = useGlobalState('transactions')
+    // const [end, setEnd] = useState(3)
+    // const [count] = useState(3)
+    // const [collection, setCollection] = useState([])
+
+    // const getCollection = () => {
+    //     return transactions.slice(0, end)
+    // }
+
+    // useEffect(() => {
+    //     setCollection(getCollection())
+    // }, [transactions, end])
+
+
     return (
         <div className="bg-[#151c25]">
             <div className="w-4/5 py-10 mx-auto">
@@ -10,8 +27,8 @@ const Transactions = () => {
                 </h4>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gaps-4 lg:gaps-2 py-2.5">
-                    {Array(3).fill().map((nft, i) => (
-                        <Transaction key={i} tx={i + 1} />
+                    {transactions.map((tx, i) => (
+                        <Transaction key={i} tx={tx} />
                     ))}
                 </div>
                 <div className='text-center my-5'>
@@ -31,15 +48,17 @@ const Transaction = ({ tx }) => (
         </div>
 
         <div>
-            <h4 className='text-sm'> #{tx} Montant transféré</h4>
+            <h4 className='text-sm'>Montant transféré</h4>
             <small className='flex justify-start items-center'>
                 <span className='mr-1'>Reçu par </span>
-                <a className='text-pink-800 mr-1' href="#" target='_blank'>0x74...a861</a>
+                <a className='text-pink-800 mr-1' href="#" target='_blank'>
+                    {truncate(tx.owner, 4,4,11)}
+                </a>
                 <MdOpenInNew />
             </small>
         </div>
 
-        <p className='text-sm font-medium'>0.79 ETH</p>
+        <p className='text-sm font-medium'>{tx.cost} ETH</p>
 
     </div>
 )
