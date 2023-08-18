@@ -16,7 +16,7 @@ const auth = 'Basic ' + Buffer.from(
 
 const client = create({
     host: 'ipfs.infura.io',
-    port: 5001,
+    port: '5001',
     protocol: 'https',
     headers: {
         authorization: auth,
