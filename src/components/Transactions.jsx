@@ -6,17 +6,17 @@ import { useEffect, useState } from 'react'
 const Transactions = () => {
 
     const [transactions] = useGlobalState('transactions')
-    // const [end, setEnd] = useState(3)
-    // const [count] = useState(3)
-    // const [collection, setCollection] = useState([])
+    const [end, setEnd] = useState(3)
+    const [count] = useState(3)
+    const [collection, setCollection] = useState([])
 
-    // const getCollection = () => {
-    //     return transactions.slice(0, end)
-    // }
+    const getCollection = () => {
+        return transactions.slice(0, end)
+    }
 
-    // useEffect(() => {
-    //     setCollection(getCollection())
-    // }, [transactions, end])
+    useEffect(() => {
+        setCollection(getCollection())
+    }, [transactions, end])
 
 
     return (
@@ -27,15 +27,22 @@ const Transactions = () => {
                 </h4>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gaps-4 lg:gaps-2 py-2.5">
-                    {transactions.map((tx, i) => (
+                    {collection.map((tx, i) => (
                         <Transaction key={i} tx={tx} />
                     ))}
                 </div>
-                <div className='text-center my-5'>
-                    <button className='shadow-lg shadow-black text-white bg-[#e32970] hover:bg-[#bd255f] rounded-full p-2 pl-7 pr-7'>
-                        Voir plus
-                    </button>
-                </div>
+                {collection.length > 0 && transactions.length > collection.length ? (
+                    <div className="text-center my-5">
+                        <button
+                            className="shadow-xl shadow-black text-white
+                                        bg-[#e32970] hover:bg-[#bd255f]
+                                        rounded-full cursor-pointer p-2"
+                            onClick={() => setEnd(end + count)}
+                        >
+                            Voir plus
+                        </button>
+                    </div>
+                ) : null}
             </div>
         </div>
     )
@@ -52,7 +59,7 @@ const Transaction = ({ tx }) => (
             <small className='flex justify-start items-center'>
                 <span className='mr-1'>Reçu par </span>
                 <a className='text-pink-800 mr-1' href="#" target='_blank'>
-                    {truncate(tx.owner, 4,4,11)}
+                    {truncate(tx.owner, 4, 4, 11)}
                 </a>
                 <MdOpenInNew />
             </small>
