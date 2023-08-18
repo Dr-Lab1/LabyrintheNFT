@@ -14,7 +14,7 @@ const Transactions = () => {
         return transactions.slice(0, end)
     }
 
-    useEffect(() => {
+    useEffect(() => { 
         setCollection(getCollection())
     }, [transactions, end])
 
@@ -23,7 +23,7 @@ const Transactions = () => {
         <div className="bg-[#151c25]">
             <div className="w-4/5 py-10 mx-auto">
                 <h4 className="text-white text-3xl font-bold uppercase text-gradient">
-                    Dernières transactions
+                    {collection.length ? ( 'Dernières transactions' ) : 'Aucune transaction encore effectuée'}
                 </h4>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gaps-4 lg:gaps-2 py-2.5">
