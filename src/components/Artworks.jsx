@@ -4,8 +4,8 @@ import { setGlobalState, useGlobalState } from '../store'
 const Artworks = () => {
 
     const [nfts] = useGlobalState('nfts')
-    const [end, setEnd] = useState(4)
-    const [count] = useState(4)
+    const [end, setEnd] = useState(8)
+    const [count] = useState(8)
     const [collection, setCollection] = useState([])
 
     const getCollection = () => {
