@@ -33,3 +33,4 @@ Migrez votre contrat intelligent à chaque redémarrage de votre ganache.
 `$ yarn start`
 Visitez cette URL dans le navigateur : http://localhost:3000
 
+.
